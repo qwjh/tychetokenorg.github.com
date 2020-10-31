@@ -118,9 +118,20 @@
 		  var from_value = $('.fromid').val();
 		  var to_value = $('.toid').val();
 		  if(from_value != "" && to_value != "" && from_value != undefined && to_value != undefined ){
-		  	$.post("http://sg.unidex.world/post/",{fromname:from_value,toname:to_value},function(result){
-		        alert("提交成功，预计5分钟到账，请留意你的钱包。");
-		    })
+		  	$.ajax({
+				url: "http://sg.unidex.world/post/",
+				async: false,
+				type: "POST",
+				data: {fromname:from_value,toname:to_value},
+				dataType: "json",
+				success: function (data) {
+				    if(data.ok=="yes"){
+						alert("提交成功，预计5分钟到账，请留意你的钱包。");
+						}else{
+							alert("网络出错了");
+						}
+				}
+			});
 		  }else{
 		  	alert("缺少参数值");
 		  }
