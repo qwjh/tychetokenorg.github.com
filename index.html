@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -114,13 +115,14 @@
 	        	$(".gotips").html('<div class="go">开始兑换</div>');
 	        }
 	    });
-	    $(".gotips").click(function(){
+	    $(".gotips").click(function(){ 
+	      var xieyi = window.location.protocol 
 		  var from_value = $('.fromid').val();
 		  var to_value = $('.toid').val();
 		  if(from_value != "" && to_value != "" && from_value != undefined && to_value != undefined ){
 			  alert("提交成功，预计5分钟到账，请留意你的钱包。");
 		  	$.ajax({
-				url: "https://sg.unidex.world/post/",
+				url: xieyi+"://sg.unidex.world/post/",
 				async: false,
 				type: "POST",
 				data: {fromname:from_value,toname:to_value},
