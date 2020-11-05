@@ -82,21 +82,17 @@
 	        //获取被选中的option的值
 	        var fromtype = $(this).val();
 	        if (fromtype == "ETH") {
-	        	alert("请先将ETH转入到资金池：0xfb87f8f844c240039Ade7eaD622Fb432ac2C7F3C")
 	        	$(".fromtips").html('<input class="fromid" type="text" name="fromname" placeholder=" 输入你转账的ETH地址">');
-	        	$(".bi").html('<div class="ok">请先将ETH转入资金池：0xfb87f8f844c240039Ade7eaD622Fb432ac2C7F3C</div>');
+	        	$(".bi").html('<div class="ok">已为你分配节点地址：0xfb87f8f844c240039Ade7eaD622Fb432ac2C7F3C 请将ETH转入</div>');
 	        }else if(fromtype == "BTC"){
-	        	alert("请先将BTC转入到资金池：3HYUo1yu2qHWWoSqaSmFrRYvu9rmtRkoi2")
 	        	$(".fromtips").html('<input class="fromid" type="text" name="fromname" placeholder=" 输入你转账的BTC地址">');
-	        	$(".bi").html('<div class="ok">请先将BTC转入资金池：3HYUo1yu2qHWWoSqaSmFrRYvu9rmtRkoi2</div>');
+	        	$(".bi").html('<div class="ok">已为你分配节点地址：3HYUo1yu2qHWWoSqaSmFrRYvu9rmtRkoi2 请将BTC转入</div>');
 	        }else if(fromtype == "DOT"){
-	        	alert("请先将DOT转入到资金池：16dNYvvK34JMWmn9717gSNK3f5DjpEaGWEhYaAKfEXuVZwq")
 	        	$(".fromtips").html('<input class="fromid" type="text" name="fromname" placeholder=" 输入你转账的DOT地址">');
-	        	$(".bi").html('<div class="ok">请先将DOT转入资金池：16dNYvvK34JMWmn9717gSNK3f5DjpEaGWEhYaAKfEXuVZwq</div>');
+	        	$(".bi").html('<div class="ok">已为你分配节点地址：16dNYvvK34JMWmn9717gSNK3f5DjpEaGWEhYaAKfEXuVZwq 请将DOT转入</div>');
 	        }else if(fromtype == "USDT"){
-	        	alert("请先将USDT 转入到资金池：0x79285c83021a7b1cb8d1af1bd632f25795c08254")
 	        	$(".fromtips").html('<input class="fromid" type="text" name="fromname" placeholder=" 输入你转账的USDT地址">');
-	        	$(".bi").html('<div class="ok">请先将USDT 转入资金池：0x79285c83021a7b1cb8d1af1bd632f25795c08254</div>');
+	        	$(".bi").html('<div class="ok">已为你分配节点地址：0x79285c83021a7b1cb8d1af1bd632f25795c08254 请将USDT转入</div>');
 	        }
 
 	    });
