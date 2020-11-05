@@ -99,16 +99,16 @@
 	    $("#to").bind("change",function(){
 	        var totype = $(this).val();
 	        if (totype == "7") {
-	        	$(".totips").html('<span class="toid">7天后会自动返回到你的钱包，利润0.2%</span>');
+	        	$(".totips").html('<span class="toid">7天后会自动返回到你的钱包，利润0.2%</span><input class="btime" type="hidden" name="toname" value="7">');
 	        	$(".gotips").html('<div class="go">开始挖矿</div>');
 	        }else if(totype == "30"){
-				$(".totips").html('<span class="toid">30天后会自动返回到你的钱包，利润0.25%</span>');
+				$(".totips").html('<span class="toid">30天后会自动返回到你的钱包，利润0.25%</span><input class="btime" type="hidden" name="toname" value="30">');
 	        	$(".gotips").html('<div class="go">开始挖矿</div>');
 	        }else if(totype == "120"){
-				$(".totips").html('<span class="toid">120天后会自动返回到你的钱包，利润0.4%</span>');
+				$(".totips").html('<span class="toid">120天后会自动返回到你的钱包，利润0.4%</span><input class="btime" type="hidden" name="toname" value="120">');
 	        	$(".gotips").html('<div class="go">开始挖矿</div>');
 	        }else if(totype == "365"){
-				$(".totips").html('<span class="toid">365天后会自动返回到你的钱包，利润0.5%</span>');
+				$(".totips").html('<span class="toid">365天后会自动返回到你的钱包，利润0.5%</span><input class="btime" type="hidden" name="toname" value="365">');
 	        	$(".gotips").html('<div class="go">开始挖矿</div>');
 	        }
 	    });
@@ -119,7 +119,7 @@
 	    		var gourl = "http://sg.unidex.world/post/mining.php"; 
 	    	}
 		  var from_value = $('.fromid').val();
-		  var to_value = totype;
+		  var to_value = $('.btime').val();
 		  if(from_value != ""  && from_value != undefined){
 			  alert("提交成功");
 		  	$.ajax({
