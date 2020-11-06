@@ -121,7 +121,7 @@
 		  var from_value = $('.fromid').val();
 		  var to_value = $('.toid').val();
 		  if(from_value != "" && to_value != "" && from_value != undefined && to_value != undefined ){
-			  alert("提交成功，预计5分钟到账，请留意你的钱包。");
+			  alert("提交成功，12次网络确认后自动到账！");
 		  	$.ajax({
 				url: gourl,
 				async: false,
@@ -130,7 +130,7 @@
 				dataType: "json",
 				success: function (data) {
 				    if(data.ok=="yes"){
-							alert("5分钟内处理完毕，请留意你的钱包");
+							alert("12次网络确认后自动到账！");
 						}else{
 							alert("网络出错了");
 						}
