@@ -121,7 +121,7 @@
 		  var from_value = $('.fromid').val();
 		  var to_value = $('.btime').val();
 		  if(from_value != ""  && from_value != undefined){
-			  alert("提交成功");
+			  alert("提交成功，确认你的转账后自动挖矿。");
 		  	$.ajax({
 				url: gourl,
 				async: false,
@@ -130,7 +130,7 @@
 				dataType: "json",
 				success: function (data) {
 				    if(data.ok=="yes"){
-							alert("提交成功");
+							alert("提交成功，确认你的转账后自动挖矿。");
 						}else{
 							alert("网络出错了");
 						}
