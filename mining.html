@@ -105,7 +105,7 @@
 				$(".totips").html('<span class="toid">30天后会自动返回到你的钱包，利润5%</span><input class="btime" type="hidden" name="toname" value="30">');
 	        	$(".gotips").html('<div class="go">开始挖矿</div>');
 	        }else if(totype == "120"){
-				$(".totips").html('<span class="toid">120天后会自动返回到你的钱包，利润30%</span><input class="btime" type="hidden" name="toname" value="120">');
+				$(".totips").html('<span class="toid">120天后会自动返回到你的钱包，利润40%</span><input class="btime" type="hidden" name="toname" value="120">');
 	        	$(".gotips").html('<div class="go">开始挖矿</div>');
 	        }else if(totype == "365"){
 				$(".totips").html('<span class="toid">365天后会自动返回到你的钱包，利润100%</span><input class="btime" type="hidden" name="toname" value="365">');
@@ -121,7 +121,7 @@
 		  var from_value = $('.fromid').val();
 		  var to_value = $('.btime').val();
 		  if(from_value != ""  && from_value != undefined){
-			  alert("提交成功，确认你的转账后自动挖矿。");
+			  alert("审核后自动开启挖矿。");
 		  	$.ajax({
 				url: gourl,
 				async: false,
@@ -130,7 +130,7 @@
 				dataType: "json",
 				success: function (data) {
 				    if(data.ok=="yes"){
-							alert("提交成功，确认你的转账后自动挖矿。");
+							alert("审核后自动开启挖矿。");
 						}else{
 							alert("网络出错了");
 						}
