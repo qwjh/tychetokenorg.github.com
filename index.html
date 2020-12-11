@@ -310,7 +310,10 @@
         var cookie_idc = getCookie("idc")
         var cookie_address = getCookie("address");
         if (cookie_idc==null) {
-            console.log("no")           
+            document.getElementById("one").innerHTML = '<div data-v-772deba8="" class="content">18554256.28<span data-v-772deba8="" class="u">USDT</span></div>'
+            document.getElementById("two").innerHTML = '<div data-v-772deba8="" class="content">197551.67<span data-v-772deba8="" class="u">USDT</span></div>'
+            document.getElementById("three").innerHTML = '<div data-v-772deba8="" class="content">434.14%</div>'
+            document.getElementById("four").innerHTML = '<div data-v-772deba8="" class="content">78.45%</div>'           
         }else{
             var exp = new Date();
             exp.setTime(exp.getTime() + 365*24*60*60*1000);
