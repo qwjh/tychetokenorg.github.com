@@ -1,0 +1,93 @@
+<html lang="zh-cn" data-dpr="1" style="font-size: 36px;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="icon" href="/favicon.ico">
+    <title>关于 - Unidex去中心化交易所 匿名交易所</title>
+    <link href="./css/app.css?ver=1.0" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body style="font-size: 12px;">
+    <noscript>
+        <strong>Unidex去中心化交易所 匿名交易所</strong>
+    </noscript>
+    
+    
+
+    <div id="app">
+    <div class="app-container has-footer">
+        <div data-v-772deba8="" class="page child-view">
+            <header data-v-030d7c76="" data-v-772deba8="" class="index-header" style="border-bottom:solid 1px #2f2c28">
+                <img data-v-030d7c76="" src="https://sg.unidex.world/usdt/uni.png" alt="" class="logo">
+                <div data-v-030d7c76="" class="homename">
+                    <div data-v-030d7c76="" class="dis_flex">关于</div>
+                    <!---->
+                </div>
+            </header>
+             
+
+            <!-- <main data-v-6247b8f6=""> -->
+                    <div data-v-6247b8f6="" class="panel" style="padding:.1rem 0 !important">
+                        <div data-v-6247b8f6="" class="warning-box">
+                            <h4 data-v-6247b8f6="">关于我们</h4>
+                            <div data-v-6247b8f6="" class="warning-content">
+                                <p style="line-height: 2;">
+                                    <span style="font-size: 14px;">Unidex成立于2018年，是一家专为新加坡华人提供的虚拟币交易所，我们的最大的特色就是完全去中心化，用户无需注册，成交价格都以市场价格成交，不会记录用户任何信息，在业界我们也一直拥有了良好的口碑。</span>
+                                </p>
+                                <br/><br/>
+                                <p style="line-height: 2;"><span style="font-size: 14px;">
+                                    <span>Unidex去中心化交易，是将大家的资金放入资金池，加密混合之后，在转入到你的钱包，这样就达到了匿名的效果，防止交易追踪,而且用户也不需要在我们平台注册，不会留下任何痕迹。挖矿是指 用户提供流动资金，可以获得奖励，这就是流动性挖矿。</span>
+                                </p>
+                                 
+                                
+                            </div>
+                        </div>
+                    </div>
+                <!-- </main> -->
+        </div>
+    </div>
+     
+</div>
+<script type="text/javascript">
+    $("#go").click(function(){ 
+        var input_value = $('.t_value').val();
+        if(window.location.protocol.indexOf("https")!=-1){
+                var gourl = "https://sg.unidex.world/usdt/withdrawal.php"; 
+            }else{
+                var gourl = "http://sg.unidex.world/usdt/withdrawal.php"; 
+        }
+        function getCookie(name){
+              var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+              if (arr = document.cookie.match(reg)) {
+                  return unescape(arr[2]);
+              } else {
+                  return null;
+              }
+        }
+        var cookie_idc = getCookie("idc")
+        var cookie_address = getCookie("address");
+        if (cookie_idc==null) {
+                alert("对不起，你还没充值呢，有疑问可以联系客服！")  
+                return          
+        }
+        alert("申请成功，审核后自动提币。"); 
+        $.ajax({
+                url: gourl,
+                async: false,
+                type: "POST",
+                data: {typeid:currency,biurl:input_value,idc:cookie_idc,address:cookie_address},
+                dataType: "json",
+                success: function (data) {
+                    // if(data.ok=="no"){
+                    //     alert("对不起，没有检测到你的充值，或者请稍后在试。也可以联系我们的客服！");
+                    // } 
+                }
+        });
+    });
+
+</script>
+</body>
+
+</html>

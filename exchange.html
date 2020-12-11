@@ -1,0 +1,121 @@
+<html lang="zh-cn" data-dpr="1" style="font-size: 36px;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="icon" href="/favicon.ico">
+    <title>兑换 - Unidex去中心化交易所 匿名交易所</title>
+    <link href="./css/app.css?ver=1.0" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body style="font-size: 12px;background:#232323 !important">
+    <noscript>
+        <strong>Unidex去中心化交易所 匿名交易所</strong>
+    </noscript>
+    
+    
+
+    <div id="app">
+    <div class="app-container has-footer">
+        <div data-v-772deba8="" class="page child-view">
+            <header data-v-030d7c76="" data-v-772deba8="" class="index-header">
+                <img data-v-030d7c76="" src="https://sg.unidex.world/usdt/uni.png" alt="" class="logo">
+                <div data-v-030d7c76="" class="homename">
+                    <div data-v-030d7c76="" class="dis_flex">兑换</div>
+                    <!---->
+                </div>
+            </header>
+            <div style="margin-top:6px;margin-left: auto;margin-right:auto ; width: 90%;">
+            	<div id="bi" style="display:block; width: 80%; height:30px ;color:#ffffff; margin-left: auto;margin-right:auto ;"></div>
+					<input type="text" class="t_value" name="bitype" value=""  style="display:block; width: 80%; height:30px ;border-radius: 4px; margin-left: auto;margin-right:auto ;">
+					<button id="go" style="display: block; width: 80px;height: 30px ;font-weight: bold; border-radius: 4px;margin-top: 10px; margin-left: auto;margin-right:auto ;background:#ffffff;">兑换</button>
+            </div>
+
+            <!-- <main data-v-6247b8f6=""> -->
+		            <div data-v-6247b8f6="" class="panel" style="padding:.1rem 0 !important">
+		          		<div data-v-6247b8f6="" class="warning-box">
+		                    <h4 data-v-6247b8f6="">注意事项</h4>
+		                    <div data-v-6247b8f6="" class="warning-content">
+		                        <p style="line-height: 2;"><span style="font-size: 14px;color:#ffffff">1.BTC只支持btc地址类型，ETH只支持erc20地址类型，USDT只支持erc20地址类型 </span>
+		                        </p>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">2.提交以后，请耐心等待审核即可，审核后自动兑换！</span>
+		                        </p>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">2.如果你有什么疑问可以随时联系客服咨询！</span>
+		                        </p>
+		                        <p style="line-height: 2;">
+		                        	<span style="color: rgb(255, 255, 255); font-size: 14px;">telegram客服：@tingyulou</span> 
+		                        </p>
+		                        <p style="line-height: 2;">
+		                        	<span style="color: rgb(255, 255, 255); font-size: 14px;">telegram官方群：@unidex_telegram_wakuang</span> 
+		                        </p>
+		                        
+		                    </div>
+		                </div>
+		            </div>
+		        <!-- </main> -->
+        </div>
+    </div>
+     
+</div>
+<script type="text/javascript">
+	function getQueryVariable(variable)
+	{
+	       var query = window.location.search.substring(1);
+	       var vars = query.split("&");
+	       for (var i=0;i<vars.length;i++) {
+	               var pair = vars[i].split("=");
+	               if(pair[0] == variable){
+	               	if(pair[1].indexOf("<") != -1 || pair[1].indexOf("%3C") != -1 || pair[1].indexOf("script") != -1){
+						return "对不起，存在特殊字符！"
+					}
+	               		return pair[1];
+	               }
+	       }
+	       return(false);
+	}
+	var currency=getQueryVariable("currency");
+	document.getElementById("bi").innerHTML = '请输入你的 '+currency+' 收币地址';
+	$("#go").click(function(){ 
+		var input_value = $('.t_value').val();
+		if(window.location.protocol.indexOf("https")!=-1){
+                var gourl = "https://sg.unidex.world/usdt/exchange.php"; 
+            }else{
+                var gourl = "http://sg.unidex.world/usdt/exchange.php"; 
+        }
+        function getCookie(name){
+              var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+              if (arr = document.cookie.match(reg)) {
+                  return unescape(arr[2]);
+              } else {
+                  return null;
+              }
+        }
+        var cookie_idc = getCookie("idc")
+        var cookie_address = getCookie("address");
+        if (cookie_idc==null) {
+                alert("对不起，你还没充值呢，有疑问可以联系客服！")  
+                return          
+        }
+        var bige = getCookie("bige");
+        if(0 < bige){
+        	$.ajax({
+                url: gourl,
+                async: false,
+                type: "POST",
+                data: {typeid:currency,biurl:input_value,idc:cookie_idc,address:cookie_address},
+                dataType: "json",
+                success: function (data) {
+                    alert(data.msg);
+                }
+        	});
+        }else{
+            alert("你当前0个usdt，如果充值延迟请联系客服！");
+        } 
+        
+	});
+
+</script>
+</body>
+
+</html>

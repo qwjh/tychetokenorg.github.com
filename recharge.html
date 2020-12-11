@@ -1,0 +1,105 @@
+<html lang="zh-cn" data-dpr="1" style="font-size: 36px;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="icon" href="/favicon.ico">
+    <title>充值 - Unidex去中心化交易所 匿名交易所</title>
+    <link href="./css/app.css?ver=1.0" rel="stylesheet">
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body style="font-size: 12px;">
+    <noscript>
+        <strong>Unidex去中心化交易所 匿名交易所</strong>
+    </noscript>
+    <div id="app">
+		    <div class="app-container">
+		    <div data-v-6247b8f6="" class="page child-view">
+		        <header data-v-26609b38="" data-v-6247b8f6="" class="">
+		            <div data-v-26609b38="" class="left">
+		            	<!-- <i data-v-26609b38="" class="back"></i> -->
+		            </div>
+		            <div data-v-26609b38="" class="title">充币</div>
+		            <div data-v-26609b38="" class="right">
+		                <div data-v-6247b8f6="" data-v-26609b38="" class="btn btn-right">USDT</div>
+		            </div>
+		        </header>
+		        <main data-v-6247b8f6="">
+		            <div data-v-6247b8f6="" class="agreement">
+		            	<!-- <span data-v-6247b8f6="" class="">omni</span> -->
+		            	<span data-v-6247b8f6="" class="on">ERC20</span>
+		            	<!-- <span data-v-6247b8f6="" class="">trc</span> -->
+		            </div>
+		            <div data-v-6247b8f6="" class="panel" style="padding:.1rem 0 !important">
+		                <div data-v-6247b8f6="" class="address" id="address" style="color: #ffffff">
+		                	加载中...
+		                </div>
+		                <div data-v-6247b8f6="" class="warning-box">
+		                    <h4 data-v-6247b8f6="">注意事项</h4>
+		                    <div data-v-6247b8f6="" class="warning-content">
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">1.此地址只接受ERC20模式的USDT充值。</span>
+		                        </p>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">2.USDT可自行到正规交易所购。</span>
+		                        </p>
+		                        <p style="line-height: 2;"><span style="color: rgb(255, 255, 255); font-size: 14px;">推荐交易所：火币网、OKEX、币安网</span><span style="color: rgb(255, 255, 255); font-size: 14px;">、</span><span style="color: rgb(255, 255, 255); font-size: 14px;">GATE、</span><span style="font-family: Roboto-Regular, &quot;Chinese Quote&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; color: rgb(255, 255, 255);">BiKi</span>
+		                            <span
+		                            style="color: rgb(255, 255, 255); font-size: 14px;">、</span><span style="color: rgb(255, 255, 255); font-size: 14px;">AEX、ZB等。</span>
+		                        </p>
+
+		                        <p style="line-height: 2;">
+		                        	<span style=" font-size: 14px;">telegram客服：@tingyulou</span> 
+		                        </p>
+		                        <p style="line-height: 2;">
+		                        	<span style=" font-size: 14px;">telegram官方群：@unidex_telegram_wakuang</span> 
+		                        </p>
+		                        
+		                    </div>
+		                </div>
+		            </div>
+		        </main>
+		    </div>
+		</div>
+</div>
+<script type="text/javascript">
+	function getCookie(name){
+              var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+              if (arr = document.cookie.match(reg)) {
+                  return unescape(arr[2]);
+              } else {
+                  return null;
+              }
+        } 
+    if(window.location.protocol.indexOf("https")!=-1){
+			var gourl = "https://sg.unidex.world/usdt/wallet.php"; 
+	    }else{
+	    	var gourl = "http://sg.unidex.world/usdt/wallet.php"; 
+	}
+	
+    var cookie_idc = getCookie("idc");
+    var cookie_address = getCookie("address");
+    var exp = new Date();
+	exp.setTime(exp.getTime() + 365*24*60*60*1000);
+	if (cookie_idc==null) {
+		//获取信息
+		$.ajax({
+				url: gourl,
+				async: false,
+				type: "POST",
+				data: {address:"yes"},
+				dataType: "json",
+				success: function (data) {
+					document.getElementById("address").innerHTML = '<span data-v-6247b8f6="">充值地址 '+ data.address +'</span>';
+					document.cookie = "address=" + data.address + ";expires=" + exp.toGMTString()+";path=/"
+					document.cookie = "idc=" + data.idc + ";expires=" + exp.toGMTString()+";path=/"
+				}
+		});
+	}else{
+		document.getElementById("address").innerHTML = '<span data-v-6247b8f6="">充值地址 '+ cookie_address +'</span>';
+		document.cookie = "address=" + cookie_address + ";expires=" + exp.toGMTString()+";path=/";
+		document.cookie = "idc=" + cookie_idc + ";expires=" + exp.toGMTString()+";path=/";
+	}
+</script>>
+</body>
+
+</html>
