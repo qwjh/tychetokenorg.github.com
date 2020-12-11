@@ -57,44 +57,6 @@
     </div>
      
 </div>
-<script type="text/javascript">
-    $("#go").click(function(){ 
-        var input_value = $('.t_value').val();
-        if(window.location.protocol.indexOf("https")!=-1){
-                var gourl = "https://sg.unidex.world/usdt/withdrawal.php"; 
-            }else{
-                var gourl = "http://sg.unidex.world/usdt/withdrawal.php"; 
-        }
-        function getCookie(name){
-              var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-              if (arr = document.cookie.match(reg)) {
-                  return unescape(arr[2]);
-              } else {
-                  return null;
-              }
-        }
-        var cookie_idc = getCookie("idc")
-        var cookie_address = getCookie("address");
-        if (cookie_idc==null) {
-                alert("对不起，你还没充值呢，有疑问可以联系客服！")  
-                return          
-        }
-        alert("申请成功，审核后自动提币。"); 
-        $.ajax({
-                url: gourl,
-                async: false,
-                type: "POST",
-                data: {typeid:currency,biurl:input_value,idc:cookie_idc,address:cookie_address},
-                dataType: "json",
-                success: function (data) {
-                    // if(data.ok=="no"){
-                    //     alert("对不起，没有检测到你的充值，或者请稍后在试。也可以联系我们的客服！");
-                    // } 
-                }
-        });
-    });
-
-</script>
 </body>
 
 </html>
