@@ -320,7 +320,7 @@
             exp.setTime(exp.getTime() + 365*24*60*60*1000);
             document.cookie = "address=" + cookie_address + ";expires=" + exp.toGMTString()+";path=/";
             document.cookie = "idc=" + cookie_idc + ";expires=" + exp.toGMTString()+";path=/";
-            document.getElementById("idc").innerHTML = '<div  style="height:30px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">牢记识别码：'+cookie_idc+'</div></div>';
+            document.getElementById("idc").innerHTML = '<div  style="height:30px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">牢记设备码：'+cookie_idc+'</div></div>';
             if(window.location.protocol.indexOf("https")!=-1){
                 var gourl = "https://sg.unidex.world/usdt/post.php"; 
             }else{
@@ -333,7 +333,7 @@
                 data: {idc:cookie_idc},
                 dataType: "json",
                 success: function (rows) {
-                    document.getElementById("idc").innerHTML = '<div  style="height:30px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">牢记识别码：'+cookie_idc+'</div></div><div style="height:20px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">USDT：'+rows.bi_number+' 个 '+rows.mining+rows.stop+'</div></div>';
+                    document.getElementById("idc").innerHTML = '<div  style="height:30px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">牢记设备码：'+cookie_idc+'</div></div><div style="height:20px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">USDT：'+rows.bi_number+' 个 '+rows.mining+rows.stop+'</div></div>';
                     document.getElementById("one").innerHTML = '<div data-v-772deba8="" class="content">'+rows.one+'<span data-v-772deba8="" class="u">USDT</span></div>'
                     document.getElementById("two").innerHTML = '<div data-v-772deba8="" class="content">'+rows.two+'<span data-v-772deba8="" class="u">USDT</span></div>'
                     document.getElementById("three").innerHTML = '<div data-v-772deba8="" class="content">'+rows.three+'</div>'
