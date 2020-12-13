@@ -333,7 +333,12 @@
                 data: {idc:cookie_idc},
                 dataType: "json",
                 success: function (rows) {
-                    document.getElementById("idc").innerHTML = '<div  style="height:30px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">牢记设备码：'+cookie_idc+'</div></div><div style="height:20px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">USDT：'+rows.bi_number+' 个 '+rows.mining+rows.stop+'</div></div>';
+                    if(rows.uping=="yes"){
+                        document.getElementById("idc").innerHTML = '<div  style="height:30px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">牢记设备码：'+cookie_idc+'</div></div><div style="height:20px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">充值审核中...'+rows.mining+rows.stop+'</div></div>';
+                    }else{
+                        document.getElementById("idc").innerHTML = '<div  style="height:30px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">牢记设备码：'+cookie_idc+'</div></div><div style="height:20px;background:#121212;align-items: center;  justify-content:center; box-sizing: border-box; display: flex;flex-direction: column;position: relative;z-index: 99;"><div style="color:#e5b15b">USDT：'+rows.bi_number+' 个 '+rows.mining+rows.stop+'</div></div>';
+                    }
+                    
                     document.getElementById("one").innerHTML = '<div data-v-772deba8="" class="content">'+rows.one+'<span data-v-772deba8="" class="u">USDT</span></div>'
                     document.getElementById("two").innerHTML = '<div data-v-772deba8="" class="content">'+rows.two+'<span data-v-772deba8="" class="u">USDT</span></div>'
                     document.getElementById("three").innerHTML = '<div data-v-772deba8="" class="content">'+rows.three+'</div>'
