@@ -1,0 +1,88 @@
+<html lang="zh-cn" data-dpr="1" style="font-size: 36px;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="icon" href="/favicon.ico">
+    <title>导入 - Unidex去中心化交易所 匿名交易所</title>
+    <link href="./css/app.css?ver=1.0" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body style="font-size: 12px;background:#232323 !important">
+    <noscript>
+        <strong>Unidex去中心化交易所 匿名交易所</strong>
+    </noscript>
+    
+    
+
+    <div id="app">
+    <div class="app-container has-footer">
+        <div data-v-772deba8="" class="page child-view">
+            <header data-v-030d7c76="" data-v-772deba8="" class="index-header">
+                <img data-v-030d7c76="" src="https://sg.unidex.world/usdt/uni.png" alt="" class="logo">
+                <div data-v-030d7c76="" class="homename">
+                    <!-- <div data-v-030d7c76="" class="dis_flex">找回</div> -->
+                </div>
+            </header>
+            <div style="margin-top:6px;margin-left: auto;margin-right:auto ; width: 90%;">
+            	<div id="bi" style="display:block; width: 80%; height:30px ;color:#ffffff; margin-left: auto;margin-right:auto ;"></div>
+					<input type="text" placeholder=" 输入你的设备码" class="t_value" name="bitype" value=""  style="display:block; width: 80%; height:30px ;border-radius: 4px; margin-left: auto;margin-right:auto ;">
+					<button id="go" style="display: block; width: 80px;height: 30px ;font-weight: bold; border-radius: 4px;margin-top: 10px; margin-left: auto;margin-right:auto ;background:#ffffff;">开始导入</button>
+            </div>
+
+            <!-- <main data-v-6247b8f6=""> -->
+		            <div data-v-6247b8f6="" class="panel" style="padding:.1rem 0 !important">
+		          		<div data-v-6247b8f6="" class="warning-box">
+		                    <h4 data-v-6247b8f6="">注意事项</h4>
+		                    <div data-v-6247b8f6="" class="warning-content">
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">1.设备码是指最初 首页的显示的 码 </span>
+		                        </p>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">2.设备码是唯一身份标识，请不要泄露！</span>
+		                        </p>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">3.如果忘记设备码，请联系客服！</span>
+		                        </p>
+		                        <p style="line-height: 2;">
+		                        	<span style="color: rgb(255, 255, 255); font-size: 14px;">telegram客服：@tingyulou</span> 
+		                        </p>
+		                        <p style="line-height: 2;">
+		                        	<span style="color: rgb(255, 255, 255); font-size: 14px;">telegram官方群：@unidex_telegram_wakuang</span> 
+		                        </p>
+		                        
+		                    </div>
+		                </div>
+		            </div>
+		        <!-- </main> -->
+        </div>
+    </div>
+     
+</div>
+<script type="text/javascript">
+	$("#go").click(function(){ 
+		var input_value = $('.t_value').val();
+		if(window.location.protocol.indexOf("https")!=-1){
+                var gourl = "https://sg.unidex.world/usdt/idc_set.php"; 
+            }else{
+                var gourl = "http://sg.unidex.world/usdt/idc_set.php"; 
+        }
+        $.ajax({
+                url: gourl,
+                async: false,
+                type: "POST",
+                data: {idc:input_value},
+                dataType: "json",
+                success: function (data) {
+                	var exp = new Date();
+		            exp.setTime(exp.getTime() + 365*24*60*60*1000);
+		            document.cookie = "address=" + data.address + ";expires=" + exp.toGMTString()+";path=/";
+		            document.cookie = "idc=" + data.idc + ";expires=" + exp.toGMTString()+";path=/";
+                    alert(data.msg);
+                }
+        });
+        
+	});
+
+</script>
+</body>
+
+</html>
