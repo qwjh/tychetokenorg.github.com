@@ -361,14 +361,15 @@
             var cookie_address = getCookie("address");
             var bige = getCookie("bige");
             if(0 < bige){
+                alert("审核后，自动开始挖矿！");
                 $.ajax({
                     url: gourl,
-                    async: false,
+                    async: true,
                     type: "POST",
                     data: {mining:m_time,idc:cookie_idc,address:cookie_address},
                     dataType: "json",
                     success: function (data) {
-                        alert(data.msg);
+                       console.log(data.msg);
                     }
                 });
             }else{
