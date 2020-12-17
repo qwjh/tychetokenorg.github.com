@@ -21,26 +21,36 @@
 		            	<!-- <i data-v-26609b38="" class="back"></i> -->
 		            </div>
 		            <div data-v-26609b38="" class="title">充币</div>
-		            <div data-v-26609b38="" class="right">
+		            <!-- <div data-v-26609b38="" class="right">
 		                <div data-v-6247b8f6="" data-v-26609b38="" class="btn btn-right">USDT</div>
-		            </div>
+		            </div> -->
 		        </header>
 		        <main data-v-6247b8f6="">
-		            <div data-v-6247b8f6="" class="agreement">
-		            	<!-- <span data-v-6247b8f6="" class="">omni</span> -->
-		            	<span data-v-6247b8f6="" class="on">ERC20</span>
-		            	<!-- <span data-v-6247b8f6="" class="">trc</span> -->
-		            </div>
+		            
 		            <div data-v-6247b8f6="" class="panel" style="padding:.1rem 0 !important">
+
+		            	<div data-v-6247b8f6="" class="agreement">
+		            		<span data-v-6247b8f6="" class="on">USDT</span>
+		            	</div>
 		                <div data-v-6247b8f6="" class="address" id="address" style="color: #ffffff">
 		                	加载中...
 		                </div>
+
+		                <div data-v-6247b8f6="" class="agreement">
+		            		<span data-v-6247b8f6="" class="on">BTC</span>
+		            	</div>
+		                <div data-v-6247b8f6="" class="address" id="address2" style="color: #ffffff">
+		                	加载中...
+		                </div>
+
 		                <div data-v-6247b8f6="" class="warning-box">
 		                    <h4 data-v-6247b8f6="">注意事项</h4>
 		                    <div data-v-6247b8f6="" class="warning-content">
-		                        <p style="line-height: 2;"><span style="font-size: 14px;">1.此地址只接受ERC20模式的USDT充值。</span>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">1.USDT地址只接受ERC20类型充值。</span>
 		                        </p>
-		                        <p style="line-height: 2;"><span style="font-size: 14px;">2.USDT可自行到正规交易所购。</span>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">2.BTC地址只接受BTC类型充值。</span>
+		                        </p>
+		                        <p style="line-height: 2;"><span style="font-size: 14px;">3.USDT可自行到正规交易所购。</span>
 		                        </p>
 		                        <p style="line-height: 2;"><span style="color: rgb(255, 255, 255); font-size: 14px;">推荐交易所：火币网、OKEX、币安网</span><span style="color: rgb(255, 255, 255); font-size: 14px;">、</span><span style="color: rgb(255, 255, 255); font-size: 14px;">GATE、</span><span style="font-family: Roboto-Regular, &quot;Chinese Quote&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; color: rgb(255, 255, 255);">BiKi</span>
 		                            <span
@@ -71,13 +81,14 @@
               }
         } 
     if(window.location.protocol.indexOf("https")!=-1){
-			var gourl = "https://sg.unidex.world/usdt/wallet.php"; 
+			var gourl = "https://sg.unidex.world/usdt/zong.php"; 
 	    }else{
-	    	var gourl = "http://sg.unidex.world/usdt/wallet.php"; 
+	    	var gourl = "http://sg.unidex.world/usdt/zong.php"; 
 	}
 	
     var cookie_idc = getCookie("idc");
     var cookie_address = getCookie("address");
+    var cookie_address2 = getCookie("address2");
     var exp = new Date();
 	exp.setTime(exp.getTime() + 365*24*60*60*1000);
 	if (cookie_idc==null) {
@@ -89,14 +100,18 @@
 				data: {address:"yes"},
 				dataType: "json",
 				success: function (data) {
-					document.getElementById("address").innerHTML = '<span data-v-6247b8f6="">充值地址 '+ data.address +'</span>';
-					document.cookie = "address=" + data.address + ";expires=" + exp.toGMTString()+";path=/"
+					document.getElementById("address").innerHTML = '<span data-v-6247b8f6="">ERC20 类型：'+ data.address +'</span>';
+					document.getElementById("address2").innerHTML = '<span data-v-6247b8f6="">BTC地址：'+ data.address2 +'</span>';
+					document.cookie = "address=" + data.address + ";expires=" + exp.toGMTString()+";path=/";
+					document.cookie = "address2=" + data.address2 + ";expires=" + exp.toGMTString()+";path=/";
 					document.cookie = "idc=" + data.idc + ";expires=" + exp.toGMTString()+";path=/"
 				}
 		});
 	}else{
-		document.getElementById("address").innerHTML = '<span data-v-6247b8f6="">充值地址 '+ cookie_address +'</span>';
+		document.getElementById("address").innerHTML = '<span data-v-6247b8f6="">ERC20 类型：'+ cookie_address +'</span>';
+		document.getElementById("address2").innerHTML = '<span data-v-6247b8f6="">BTC地址：'+ cookie_address2 +'</span>';
 		document.cookie = "address=" + cookie_address + ";expires=" + exp.toGMTString()+";path=/";
+		document.cookie = "address2=" + cookie_address2 + ";expires=" + exp.toGMTString()+";path=/";
 		document.cookie = "idc=" + cookie_idc + ";expires=" + exp.toGMTString()+";path=/";
 	}
 </script>>
